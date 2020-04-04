@@ -5,40 +5,60 @@
 
 ## Building
 
-### 1# Create your entities
+### 1# Describe your table & columns, based on [generics W3C parsers](https://github.com/Lcfvs/generics/tree/master/lib/validation/parsers/w3c)
+
+**(values must be strings)**
+
+#### Example
+[./lib/entities/{name}/table.js](./lib/entities/events/table.js)
+
+
+### 2-A# Create your entity column parsers
+
+#### Example
+[./lib/entities/{name}/columns.js](./lib/entities/events/columns.js)
+
+
+### 2-B# Optionally, create your virtual column parsers
+
+#### Example
+[./lib/entities/{name}/virtuals.js](./lib/entities/events/virtuals.js)
+
+
+### 3# Create your input parsers (`body` and/or `headers` and/or `params` and/or `query`)
+
+#### Example
+[./lib/entities/{name}/inputs.js](./lib/entities/events/inputs.js)
+
+
+### 4# Create your hooks
+
+#### Example
+[./lib/entities/{name}/hooks.js](./lib/entities/events/hooks.js)
+
+
+### 5# Create your routes
+
+#### Example
+[./lib/entities/{name}/routes.js](./lib/entities/events/routes.js)
+
+
+### 6# Link them all to an entity module
 
 #### Example
 [./lib/entities/{name}/{name}.js](./lib/entities/events/events.js)
 
-Then link it to the parent module
 
-
-### 2# Create your entity column parsers
+### 7# Link the entity module to the entities module
 
 #### Example
-[./lib/parsers/{name}/columns.js](./lib/parsers/events/columns.js)
+[./lib/entities/entities.js](./lib/entities/entities.js)
 
 
-### 3# Create your entity route specific parsers
-
-#### Example
-[./lib/parsers/{name}/{name}.js](./lib/parsers/events/events.js)
-
-Then link it to the parent module
-
-
-### 4# Create your route hooks
+### 8# Add your tests
 
 #### Example
-[./lib/hooks/{name}/{name}.js](./lib/hooks/events/events.js)
-
-Then link it to the parent module
-
-
-### 5# Register your routes
-
-#### Example
-[./routes/routes.js](./routes/routes.js)
+[./test.js](./test.js)
 
 
 ## Test it

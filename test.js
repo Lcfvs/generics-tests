@@ -1,11 +1,12 @@
 import date from '@lcf.vs/generics/lib/types/date/date.js'
 import process from 'process'
 import './bootstrap.js'
-import routes from './routes/routes.js'
+import entities from './lib/entities/entities.js'
+import routes from './lib/routes/routes.js'
 import app from './utils/app.js'
 import fetch from './utils/fetch.js'
 
-routes(app)
+routes(app, entities)
 
 async function test () {
   let response
@@ -58,11 +59,8 @@ async function test () {
 
   response = await fetch('/events/search', {
     method: 'get',
-    params: {
-      content: `${response.body.content}`
-    },
     query: {
-      confirmation: '1'
+      content: `${response.body.content}`
     }
   })
 
