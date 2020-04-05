@@ -1,7 +1,4 @@
-import { resolve } from 'path'
-import { argv, chdir } from 'process'
-
-chdir(resolve(argv[1], '..'))
+import './cwd.cjs'
 
 export default {
   NODE_ENV: 'development'

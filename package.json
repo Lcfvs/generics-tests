@@ -1,11 +1,12 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.0.3",
+  "version": "0.1.0",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "scripts": {
     "start": "node ./index.js",
-    "test": "node ./test.js"
+    "test": "node ./test.js",
+    "knex": "knex --esm --knexfile knexfile.cjs --"
   },
   "repository": {
     "type": "git",
@@ -24,9 +25,12 @@
   "homepage": "https://github.com/Lcfvs/generics-tests#readme",
   "dependencies": {
     "@lcf.vs/generics": "https://github.com/Lcfvs/generics/tarball/master",
-    "process": "latest"
+    "knex": "^0.20.13",
+    "process": "latest",
+    "sqlite3": "^4.1.1"
   },
   "devDependencies": {
+    "babel-register": "^6.26.0",
     "eslint": "^6.8.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.20.2",
