@@ -17,6 +17,11 @@ const response = {
       .status(statusCode)
       .location(location)
   },
+  render (template, body) {
+    return this
+      .set('content-type', 'text/html')
+      .send(body)
+  },
   status (statusCode) {
     return Object.assign(this, {
       statusCode
