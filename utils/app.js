@@ -43,7 +43,7 @@ const response = {
   }
 }
 
-function next (error) {
+function next (error = new Error('not found')) {
   console.error(error)
   process.exit(0)
 }
@@ -139,6 +139,6 @@ export default {
       ])
     }
 
-    next(new Error('not found'))
+    next()
   }
 }

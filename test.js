@@ -5,6 +5,7 @@ import entities from './lib/entities/entities.js'
 import routes from './lib/routes/routes.js'
 import app from './utils/app.js'
 import fetch from './utils/fetch.js'
+import log from './utils/log.js'
 
 routes(app, entities)
 
@@ -20,7 +21,7 @@ async function test () {
     method: 'post'
   })
 
-  console.log({ created: response })
+  log({ created: response })
 
   response = await fetch(`/events/update/${response.body.id}`, {
     body: {
@@ -34,7 +35,7 @@ async function test () {
     }
   })
 
-  console.log({ updated: response })
+  log({ updated: response })
 
   response = await fetch(`/events/find/${response.body.id}`, {
     method: 'get',
@@ -43,7 +44,7 @@ async function test () {
     }
   })
 
-  console.log({ found: response })
+  log({ found: response })
 
   response = await fetch(`/events/archive/${response.body.id}`, {
     method: 'get',
@@ -55,7 +56,7 @@ async function test () {
     }
   })
 
-  console.log({ archived: response })
+  log({ archived: response })
 
   response = await fetch('/events/search', {
     method: 'get',
@@ -64,9 +65,9 @@ async function test () {
     }
   })
 
-  console.log({ searched: response })
+  log({ searched: response })
 }
 
 test()
-  .catch(error => console.log(error))
+  .catch(error => console.error(error))
   .finally(() => process.exit(0))
