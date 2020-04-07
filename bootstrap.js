@@ -1,5 +1,7 @@
 import './cwd.cjs'
+import { resolve } from 'path'
+import dotenv from 'dotenv'
 
-export default {
-  NODE_ENV: 'development'
-}
+dotenv.config({
+  path: resolve('.env')
+})
