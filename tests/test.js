@@ -1,14 +1,14 @@
+import route from '@lcf.vs/generics/lib/express/route.js'
 import date from '@lcf.vs/generics/lib/types/date/date.js'
 import process from 'process'
 import '../bootstrap.js'
 import entities from '../lib/entities/entities.js'
-import renderer from '../lib/hooks/rendering/renderer.js'
-import routes from '../lib/routes/routes.js'
+import hooks from '../lib/hooks/hooks.js'
 import app from '../utils/app.js'
 import fetch from '../utils/fetch.js'
 import log from '../utils/log.js'
 
-routes(app, entities, renderer, {
+route(app, entities, hooks.response.renderer, {
   // templates
 })
 

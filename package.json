@@ -1,6 +1,6 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/Lcfvs/generics-tests#readme",
   "dependencies": {
-    "@lcf.vs/generics": "https://github.com/Lcfvs/generics/tarball/master",
+    "@lcf.vs/generics": "latest",
     "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
     "knex": "^0.20.13",
