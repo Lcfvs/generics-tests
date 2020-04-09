@@ -1,11 +1,11 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "scripts": {
     "start": "node ./index.js",
-    "test": "node ./test.js",
+    "test": "node ./tests/test.js",
     "knex": "knex --esm --knexfile knexfile.cjs --"
   },
   "repository": {

@@ -1,13 +1,16 @@
 import date from '@lcf.vs/generics/lib/types/date/date.js'
 import process from 'process'
-import './bootstrap.js'
-import entities from './lib/entities/entities.js'
-import routes from './lib/routes/routes.js'
-import app from './utils/app.js'
-import fetch from './utils/fetch.js'
-import log from './utils/log.js'
+import '../bootstrap.js'
+import entities from '../lib/entities/entities.js'
+import renderer from '../lib/hooks/rendering/renderer.js'
+import routes from '../lib/routes/routes.js'
+import app from '../utils/app.js'
+import fetch from '../utils/fetch.js'
+import log from '../utils/log.js'
 
-routes(app, entities)
+routes(app, entities, renderer, {
+  // templates
+})
 
 async function test () {
   let response

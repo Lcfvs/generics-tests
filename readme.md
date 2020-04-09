@@ -70,7 +70,7 @@
 ### 10# Add your tests
 
 #### Example
-[./test.js](./test.js)
+[./tests.test.js](./tests/test.js)
 
 
 ### 11# Test it
