@@ -8,9 +8,7 @@ import app from '../utils/app.js'
 import fetch from '../utils/fetch.js'
 import log from '../utils/log.js'
 
-route(app, entities, hooks.response.renderer, {
-  // templates
-})
+route(app, entities, hooks.response.renderer)
 
 async function test () {
   let response
