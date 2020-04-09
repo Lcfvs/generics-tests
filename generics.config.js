@@ -3,12 +3,12 @@ import parsers from '@lcf.vs/generics/lib/validation/parsers/parsers.js'
 
 export default {
   hooks: {
-    depth: null,
+    //depth: 5,
     name: 'hooks',
     logger: hooks.log.logger
   },
   parsers: {
-    depth: null,
+    //depth: 5,
     name: 'parsers',
     logger: parsers.log.logger
   }
