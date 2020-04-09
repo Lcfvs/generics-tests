@@ -29,19 +29,13 @@ async function test () {
       startDate: date.toW3CDatetime(new Date(), true),
       endDate: date.toW3CDatetime(date.addDays(new Date(), 1), true)
     },
-    method: 'post',
-    params: {
-      id: `${response.body.id}`
-    }
+    method: 'post'
   })
 
   log({ updated: response })
 
   response = await fetch(`/events/find/${response.body.id}`, {
-    method: 'get',
-    params: {
-      id: `${response.body.id}`
-    }
+    method: 'get'
   })
 
   log({ found: response })
