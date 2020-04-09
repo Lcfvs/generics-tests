@@ -1,10 +1,10 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.1.17",
+  "version": "0.1.18",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "scripts": {
-    "start": "node ./index.js",
+    "start": "node ./tests/index.js",
     "test": "node ./tests/test.js",
     "knex": "knex --esm --knexfile knexfile.cjs --"
   },
@@ -27,6 +27,7 @@
     "@lcf.vs/generics": "latest",
     "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
+    "express": "^4.17.1",
     "knex": "^0.20.13",
     "mysql2": "^2.1.0",
     "process": "latest",

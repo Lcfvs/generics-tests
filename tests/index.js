@@ -1,3 +1,4 @@
+import process from 'process'
 import route from '@lcf.vs/generics/lib/express/route.js'
 import '../bootstrap.js'
 import entities from '../lib/entities/entities.js'
@@ -6,3 +7,5 @@ import app from './app.js'
 import templates from './templates/templates.js'
 
 route(app, entities, hooks.response.renderer, templates)
+
+app.listen(process.env.PORT || 8080)
