@@ -1,6 +1,6 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "scripts": {
