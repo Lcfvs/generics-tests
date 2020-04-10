@@ -3,6 +3,11 @@
 [@lcf.vs/generics](https://github.com/Lcfvs/generics) tests repository
 
 
+## Install
+
+`git clone https://github.com/Lcfvs/generics-tests`
+
+
 ## Building
 
 
