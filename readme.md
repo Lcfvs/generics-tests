@@ -6,6 +6,7 @@
 ## Install
 
 `git clone https://github.com/Lcfvs/generics-tests`
+`npm i --save-dev`
 
 
 ## Building
