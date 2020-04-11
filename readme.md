@@ -6,6 +6,9 @@
 ## Install
 
 `git clone https://github.com/Lcfvs/generics-tests`
+
+`cd generics-tests`
+
 `npm i --save-dev`
 
 
