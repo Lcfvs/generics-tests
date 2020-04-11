@@ -51,7 +51,7 @@
 ### 7# Link them all to an entity module
 
 #### Example
-[./lib/entities/{name}/defs/{name}.js](./lib/entities/events/events.js)
+[./lib/entities/{name}/{name}.js](./lib/entities/events/events.js)
 
 
 ### 8# Link the entity module to the entities module
