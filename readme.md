@@ -27,58 +27,46 @@
 **(values must be strings)**
 
 #### Example
-[./lib/entities/{name}/table.js](./lib/entities/events/table.js)
+[./lib/entities/{name}/defs/table.js](./lib/entities/events/defs/table.js)
 
 
 ### 4# Create your entity column parsers
 
 #### Example
-[./lib/entities/{name}/columns.js](./lib/entities/events/columns.js)
+[./lib/entities/{name}/defs/columns.js](./lib/entities/events/defs/columns.js)
 
 
-### 4-optional# Create your virtual column parsers
-
-#### Example
-[./lib/entities/{name}/virtuals.js](./lib/entities/events/virtuals.js)
-
-
-### 5# Create your input parsers (`body` and/or `headers` and/or `params` and/or `query`)
+### 5# Create your hooks
 
 #### Example
-[./lib/entities/{name}/inputs.js](./lib/entities/events/inputs.js)
+[./lib/entities/{name}/defs/hooks.js](./lib/entities/events/defs/hooks.js)
 
 
-### 6# Create your hooks
-
-#### Example
-[./lib/entities/{name}/hooks.js](./lib/entities/events/hooks.js)
-
-
-### 7# Create your routes
+### 6# Create your routes
 
 #### Example
-[./lib/entities/{name}/routes.js](./lib/entities/events/routes.js)
+[./lib/entities/{name}/defs/routes.js](./lib/entities/events/defs/routes.js)
 
 
-### 8# Link them all to an entity module
+### 7# Link them all to an entity module
 
 #### Example
-[./lib/entities/{name}/{name}.js](./lib/entities/events/events.js)
+[./lib/entities/{name}/defs/{name}.js](./lib/entities/events/events.js)
 
 
-### 9# Link the entity module to the entities module
+### 8# Link the entity module to the entities module
 
 #### Example
 [./lib/entities/entities.js](./lib/entities/entities.js)
 
 
-### 10# Add your tests
+### 9# Add your tests
 
 #### Example
-[./tests.test.js](./tests/test.js)
+[./tests/test.js](./tests/test.js)
 
 
-### 11# Test it
+### 10# Test it
 
 `npm test`
 

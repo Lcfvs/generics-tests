@@ -2,13 +2,13 @@ import route from '@lcf.vs/generics/lib/express/route.js'
 import date from '@lcf.vs/generics/lib/types/date/date.js'
 import process from 'process'
 import '../bootstrap.js'
-import entities from '../lib/entities/entities.js'
+import knex from '../lib/knex/knex.js'
 import hooks from '../lib/hooks/hooks.js'
 import app from '../utils/app.js'
 import fetch from '../utils/fetch.js'
 import log from '../utils/log.js'
 
-route(app, entities, hooks.response.renderer)
+route(app, knex, hooks.response.renderer)
 
 async function test () {
   let response
@@ -35,17 +35,11 @@ async function test () {
 
   log({ updated: response })
 
-  response = await fetch(`/events/find/${response.body.id}`, {
-    method: 'get'
-  })
+  response = await fetch(`/events/find/${response.body.id}`, {})
 
   log({ found: response })
 
   response = await fetch(`/events/archive/${response.body.id}`, {
-    method: 'get',
-    params: {
-      id: `${response.body.id}`
-    },
     query: {
       confirmation: '1'
     }
@@ -54,7 +48,6 @@ async function test () {
   log({ archived: response })
 
   response = await fetch('/events/search', {
-    method: 'get',
     query: {
       content: `${response.body.content}`
     }
