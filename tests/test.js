@@ -11,9 +11,11 @@ import log from '../utils/log.js'
 route(app, knex, hooks.response.renderer)
 
 async function test () {
-  let response
+  let response, uri
 
-  response = await fetch('/events/create', {
+  uri = '/events/create'
+
+  response = await fetch(uri, {
     body: {
       content: 'event content',
       startDate: date.toW3CDatetime(new Date(), true),
@@ -22,9 +24,11 @@ async function test () {
     method: 'post'
   })
 
-  log({ created: response })
+  log({ [uri]: response })
 
-  response = await fetch(`/events/update/${response.body.id}`, {
+  uri = `/events/update/${response.body.id}`
+
+  response = await fetch(uri, {
     body: {
       content: `${response.body.content} (updated)`,
       startDate: date.toW3CDatetime(new Date(), true),
@@ -33,27 +37,33 @@ async function test () {
     method: 'post'
   })
 
-  log({ updated: response })
+  log({ [uri]: response })
 
-  response = await fetch(`/events/find/${response.body.id}`, {})
+  uri = `/events/find/${response.body.id}`
 
-  log({ found: response })
+  response = await fetch(uri, {})
 
-  response = await fetch(`/events/archive/${response.body.id}`, {
+  log({ [uri]: response })
+
+  uri = `/events/archive/${response.body.id}`
+
+  response = await fetch(uri, {
     query: {
       confirmation: '1'
     }
   })
 
-  log({ archived: response })
+  log({ [uri]: response })
 
-  response = await fetch('/events/search', {
+  uri = `/events/search`
+
+  response = await fetch(uri, {
     query: {
       content: `${response.body.content}`
     }
   })
 
-  log({ searched: response })
+  log({ [uri]: response })
 }
 
 test()
