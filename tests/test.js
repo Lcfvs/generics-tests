@@ -32,11 +32,11 @@ async function test () {
 
   log({ [uri]: response })
 
-  uri = `/events/update/${response.body.id}`
+  uri = `/events/update/${response.body.entity.id}`
 
   response = await fetch(uri, {
     body: {
-      content: `${response.body.content} (updated)`,
+      content: `${response.body.entity.content} (updated)`,
       startDate: date.toW3CDatetime(new Date(), true),
       endDate: date.toW3CDatetime(date.addDays(new Date(), 1), true)
     },
@@ -45,13 +45,13 @@ async function test () {
 
   log({ [uri]: response })
 
-  uri = `/events/find/${response.body.id}`
+  uri = `/events/find/${response.body.entity.id}`
 
   response = await fetch(uri, {})
 
   log({ [uri]: response })
 
-  uri = `/events/archive/${response.body.id}`
+  uri = `/events/archive/${response.body.entity.id}`
 
   response = await fetch(uri, {
     query: {
@@ -65,7 +65,36 @@ async function test () {
 
   response = await fetch(uri, {
     query: {
-      content: `${response.body.content}`
+      content: `${response.body.entity.content}`
+    }
+  })
+
+  log({ [uri]: response })
+
+  uri = '/users/create'
+
+  response = await fetch('/users/create', {
+    body: {
+      firstName: 'my first name',
+      lastName: 'my last name',
+      email: 'my-account@mail.com'
+    },
+    method: 'post'
+  })
+
+  log({ [uri]: response })
+
+  uri = `/users/find/${response.body.entity.id}`
+
+  response = await fetch(uri, {})
+
+  log({ found: response })
+
+  uri = '/users/search'
+
+  response = await fetch(uri, {
+    query: {
+      firstName: `${response.body.entity.firstName}`
     }
   })
 
