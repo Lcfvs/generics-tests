@@ -2,13 +2,19 @@ import route from '@lcf.vs/generics/lib/express/route.js'
 import date from '@lcf.vs/generics/lib/types/date/date.js'
 import process from 'process'
 import '../bootstrap.js'
+import entities from '../lib/entities/entities.js'
 import knex from '../lib/knex/knex.js'
 import hooks from '../lib/hooks/hooks.js'
 import app from '../utils/app.js'
 import fetch from '../utils/fetch.js'
 import log from '../utils/log.js'
 
-route(app, knex, hooks.response.renderer)
+route({
+  app,
+  entities,
+  knex,
+  renderer: hooks.response.renderer
+})
 
 async function test () {
   let response, uri
