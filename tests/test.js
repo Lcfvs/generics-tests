@@ -1,25 +1,19 @@
 import route from '@lcf.vs/generics/lib/express/route.js'
+import app from '@lcf.vs/generics/lib/tester/app.js'
+import fetch from '@lcf.vs/generics/lib/tester/fetch.js'
+import log from '@lcf.vs/generics/lib/tester/log.js'
+import resolve from '@lcf.vs/generics/lib/tester/resolve.js'
 import date from '@lcf.vs/generics/lib/types/date/date.js'
 import process from 'process'
 import '../bootstrap.js'
-import entities from '../lib/entities/entities.js'
-import knex from '../lib/knex/knex.js'
-import hooks from '../lib/hooks/hooks.js'
-import app from '../utils/app.js'
-import fetch from '../utils/fetch.js'
-import log from '../utils/log.js'
+import dao from '../lib/dao/dao.js'
 
-route({
-  app,
-  entities,
-  knex,
-  renderer: hooks.response.renderer
-})
+route({ app, dao })
 
 async function test () {
   let response, uri
 
-  uri = '/events/create'
+  uri = resolve('/events/create')
 
   response = await fetch(uri, {
     body: {
@@ -32,11 +26,11 @@ async function test () {
 
   log({ [uri]: response })
 
-  uri = `/events/update/${response.body.entity.id}`
+  uri = resolve('/events/update', response.body.id)
 
   response = await fetch(uri, {
     body: {
-      content: `${response.body.entity.content} (updated)`,
+      content: `${response.body.content} (updated)`,
       startDate: date.toW3CDatetime(new Date(), true),
       endDate: date.toW3CDatetime(date.addDays(new Date(), 1), true)
     },
@@ -45,56 +39,27 @@ async function test () {
 
   log({ [uri]: response })
 
-  uri = `/events/find/${response.body.entity.id}`
+  uri = resolve('/events/find', response.body.id)
 
   response = await fetch(uri, {})
 
   log({ [uri]: response })
 
-  uri = `/events/archive/${response.body.entity.id}`
+  uri = resolve('/events/search')
+
+  response = await fetch(uri, {
+    query: {
+      content: response.body.content
+    }
+  })
+
+  log({ [uri]: response })
+
+  uri = resolve('/events/archive', response.body[0].id)
 
   response = await fetch(uri, {
     query: {
       confirmation: '1'
-    }
-  })
-
-  log({ [uri]: response })
-
-  uri = `/events/search`
-
-  response = await fetch(uri, {
-    query: {
-      content: `${response.body.entity.content}`
-    }
-  })
-
-  log({ [uri]: response })
-
-  uri = '/users/create'
-
-  response = await fetch('/users/create', {
-    body: {
-      firstName: 'my first name',
-      lastName: 'my last name',
-      email: 'my-account@mail.com'
-    },
-    method: 'post'
-  })
-
-  log({ [uri]: response })
-
-  uri = `/users/find/${response.body.entity.id}`
-
-  response = await fetch(uri, {})
-
-  log({ found: response })
-
-  uri = '/users/search'
-
-  response = await fetch(uri, {
-    query: {
-      firstName: `${response.body.entity.firstName}`
     }
   })
 
