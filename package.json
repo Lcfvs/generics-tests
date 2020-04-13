@@ -1,8 +1,11 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
+  "engines": {
+    "node": ">=13.7"
+  },
   "scripts": {
     "start": "node ./tests/index.js",
     "test": "node ./tests/test.js",
