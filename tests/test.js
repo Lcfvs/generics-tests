@@ -13,6 +13,12 @@ route({ app, dao })
 async function test () {
   let response, uri
 
+  uri = resolve('/')
+
+  response = await fetch(uri, {})
+
+  log({ [uri]: response })
+
   uri = resolve('/events/create')
 
   response = await fetch(uri, {
