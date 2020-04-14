@@ -23,9 +23,7 @@ export default async () => {
 
   response = await fetch(uri, {
     body: {
-      content: `${response.body.content} (updated)`,
-      startDate: date.toW3CDatetime(new Date(), true),
-      endDate: date.toW3CDatetime(date.addDays(new Date(), 1), true)
+      content: `${response.body.content} (updated)`
     },
     method: 'post'
   })
