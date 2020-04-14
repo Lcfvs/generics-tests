@@ -46,7 +46,7 @@ export default async () => {
 
   log({ [uri]: response })
 
-  uri = resolve('/events/archive', response.body[0].id)
+  uri = resolve('/events/archive', (response.body[0] || {}).id)
 
   response = await fetch(uri, {
     query: {
