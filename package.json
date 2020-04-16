@@ -1,6 +1,6 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.3.10",
+  "version": "0.3.11",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "engines": {
@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node ./tests/index.js",
     "test": "node ./tests/test.js",
-    "knex": "knex --esm --knexfile knexfile.cjs --"
+    "knex": "knex --esm --knexfile knexfile.cjs --",
+    "down": "npm run knex migrate:down",
+    "latest": "npm run knex migrate:latest"
   },
   "repository": {
     "type": "git",
@@ -27,11 +29,11 @@
   },
   "homepage": "https://github.com/Lcfvs/generics-tests#readme",
   "dependencies": {
-    "@lcf.vs/generics": "^1.0.0-alpha-065",
+    "@lcf.vs/generics": "^1.0.0-alpha-067",
     "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "knex": "^0.20.14",
+    "knex": "^0.20.15",
     "mysql2": "^2.1.0",
     "process": "latest",
     "sqlite3": "^4.1.1"

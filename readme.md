@@ -23,7 +23,7 @@
 
 ### 2# Run your migrations
 
-`npm run knex migrate:latest`
+`npm run latest`
 
 
 ### 3# Describe your table & columns, based on [generics W3C parsers](https://github.com/Lcfvs/generics/tree/master/lib/validation/parsers/w3c)
