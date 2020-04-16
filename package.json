@@ -1,6 +1,6 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.3.11",
+  "version": "0.3.12",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "engines": {
@@ -10,8 +10,8 @@
     "start": "node ./tests/index.js",
     "test": "node ./tests/test.js",
     "knex": "knex --esm --knexfile knexfile.cjs --",
-    "down": "npm run knex migrate:down",
-    "latest": "npm run knex migrate:latest"
+    "down": "npm run knex migrate:down --",
+    "latest": "npm run knex migrate:latest --"
   },
   "repository": {
     "type": "git",
