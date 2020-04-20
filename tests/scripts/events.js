@@ -6,6 +6,16 @@ import date from '@lcf.vs/generics/lib/types/date/date.js'
 export default async () => {
   let response, uri
 
+  uri = resolve('/events/subscribe')
+
+  response = await fetch(uri, {
+    sse: true
+  })
+
+  response.on('message', event => log({ event }))
+
+  log({ [uri]: response })
+
   uri = resolve('/events/create')
 
   response = await fetch(uri, {

@@ -13,4 +13,4 @@ Promise.all([
   events
 ].map(async test => test()))
   .catch(error => console.error(error))
-  .finally(() => process.exit(0))
+  .finally(() => setTimeout(() => process.exit(0), 5000))
