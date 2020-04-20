@@ -1,6 +1,6 @@
-import './bootstrap.js'
 import { resolve } from 'path'
 import { env } from 'process'
+import './bootstrap.js'
 
 export const {
   development = {
