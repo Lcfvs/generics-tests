@@ -2,10 +2,11 @@ import fetch from '@lcf.vs/generics/lib/tester/fetch.js'
 import resolve from '@lcf.vs/generics/lib/tester/resolve.js'
 import date from '@lcf.vs/generics/lib/types/date/date.js'
 
-export default async function create () {
+export default async function create (config) {
   const uri = resolve('/events/create')
 
   const response = await fetch(uri, {
+    ...config,
     body: {
       content: 'event content',
       startDate: date.toW3CDatetime(new Date(), true),

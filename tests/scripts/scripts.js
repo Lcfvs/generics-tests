@@ -12,6 +12,14 @@ const tests = [
   events.archive
 ]
 
-export default async function scripts (depth = 3) {
-  return tester.test(tests, depth)
+export default async function scripts ({
+  depth = 3,
+  stack = false,
+  xhr = false
+} = {}) {
+  return tester.test(tests, {
+    depth,
+    stack,
+    xhr
+  })
 }
