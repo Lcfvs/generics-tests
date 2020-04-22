@@ -2,7 +2,7 @@ export function up (qb) {
   return qb.schema
     .createTable('events', table => {
       table.increments('id').primary()
-      table.dateTime('createdDate').nullable()
+      table.dateTime('createdDate').notNullable()
       table.dateTime('updatedDate').nullable()
       table.dateTime('archivedDate').nullable()
       table.string('content', 100).notNullable()
