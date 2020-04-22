@@ -1,6 +1,6 @@
 {
   "name": "@lcf.vs/generics-tests",
-  "version": "0.4.8",
+  "version": "0.5.0",
   "type": "module",
   "description": "@lcf.vs/generics tests repository",
   "engines": {
@@ -29,7 +29,7 @@
   },
   "homepage": "https://github.com/Lcfvs/generics-tests#readme",
   "dependencies": {
-    "@lcf.vs/generics": "^1.0.0-alpha-088",
+    "@lcf.vs/generics": "^1.0.0-alpha-089",
     "bluebird": "^3.7.2",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",

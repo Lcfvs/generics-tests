@@ -1,11 +1,13 @@
 import fetch from '@lcf.vs/generics/lib/tester/fetch.js'
-import log from '@lcf.vs/generics/lib/tester/log.js'
 import resolve from '@lcf.vs/generics/lib/tester/resolve.js'
 
-export default async () => {
-  const uri = resolve('/')
+export default async function search () {
+  const uri = resolve('/events/search')
 
   const response = await fetch(uri, {})
 
-  log({ [uri]: response })
+  return {
+    response,
+    uri
+  }
 }
